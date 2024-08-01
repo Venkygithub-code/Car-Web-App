@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cars</title>
+    <link rel="stylesheet" type="text/css" href="/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+  </head>
+  <body>
+    <div class="profile">
+      <img class="img_profile" src="img/man.png" alt="" />
+      <p class="username"><%= name_profile %></p>
+    </div>
+
+    <div class="container">
+      <div class="contact-box">
+        <div class="left">
+          <a href="/log_out"> <button class="btn1">log out</button></a>
+        </div>
+        <div class="right">
+          <h2>Cars</h2>
+          <form>
+            <input
+              name="name"
+              type="text"
+              class="field"
+              placeholder="Your car name"
+            />
+            <input
+              name="model"
+              type="text"
+              class="field"
+              placeholder="Your car model"
+            />
+            <input
+              name="color"
+              type="text"
+              class="field"
+              placeholder="Your car color"
+            />
+            <input
+              name="price"
+              type="text"
+              class="field"
+              placeholder="Your car price"
+            />
+
+            <input
+              class="btn"
+              type="submit"
+              value="Insert"
+              formaction="/home/insert"
+              formmethod="post"
+            />
+
+            <input
+              class="btn"
+              type="submit"
+              value="Update"
+              formaction="/home/update"
+              formmethod="post"
+            />
+
+            <input
+              class="btn"
+              type="submit"
+              value="Search By Name"
+              formaction="/home/Search"
+              formmethod="post"
+            />
+
+            <input
+              class="btn"
+              type="submit"
+              value="Delete"
+              formaction="/home/delete"
+              formmethod="post"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Car Name</th>
+        <th>Car Model</th>
+        <th>Car Color</th>
+        <th>Car Price</th>
+      </tr>
+      <% for(let car of cars){ %>
+      <tr>
+        <td><%=car.carName %></td>
+        <td><%=car.carModel %></td>
+        <td><%=car.carColor %></td>
+        <td><%=car.carPrice %> $</td>
+      </tr>
+      <% } %>
+    </table>
+
+    <br /><br /><br /><br />
+  </body>
+</html>
